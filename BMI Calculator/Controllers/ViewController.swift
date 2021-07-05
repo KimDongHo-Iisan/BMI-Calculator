@@ -16,11 +16,11 @@ class ViewController: UIViewController {
     }
 
     @IBAction func heightSliderChanged(_ sender: UISlider) {
-        print(sender.value)
+        print(String(format: "%.2f", sender.value)) // 소숫점 2자리까지 출력하게 하는 코드.
     }
     
     @IBAction func weightSliderChanged(_ sender: UISlider) {
-        print(sender.value)
+        print(Int(sender.value)) // 몸무게는 소숫점까지 필요하지 않기때문에 INT로 변형해주어도 된다.
     }
 }
 
