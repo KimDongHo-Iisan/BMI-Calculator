@@ -20,11 +20,14 @@ class ViewController: UIViewController {
     }
 
     @IBAction func heightSliderChanged(_ sender: UISlider) {
-        heightLabel.text = (String(format: "%.2f", sender.value))
+        //값은 출력이 되지만, 단위가 사라지는 현상이 발생한다. 이를 해결하기 위해.
+        let height = (String(format: "%.2f", sender.value))
+        heightLabel.text = "\(height)m" //문자열 보간을 이용해서 단위도 나타나게 만들어준다.
     }
     
     @IBAction func weightSliderChanged(_ sender: UISlider) {
-        weightLabel.text = (String(format: "%.0f", sender.value)) // 위 코드처럼 그냥 이 코드를 사용하는것이 낫다. 몸무게는 소숫점이 필요없으므로, 0f를 쓴다.
+        let weight = (String(format: "%.0f", sender.value))
+        weightLabel.text = "\(weight)kg"
     }
 }
 
