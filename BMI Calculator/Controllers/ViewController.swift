@@ -24,7 +24,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func weightSliderChanged(_ sender: UISlider) {
-        weightLabel.text = print(Int(sender.value)) // 이렇게 코드를 짜면, text는 String을 원하는데, INT 값이 출력되어서 에러가 발생한다.
+        weightLabel.text = (String(format: "%.0f", sender.value)) // 위 코드처럼 그냥 이 코드를 사용하는것이 낫다. 몸무게는 소숫점이 필요없으므로, 0f를 쓴다.
     }
 }
 
