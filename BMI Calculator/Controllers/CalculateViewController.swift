@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class CalculateViewController: UIViewController {
     
     //슬라이더가 움직일때 값이 변화되는 것을 보여주기 위해 아웃렛을 추가.
     @IBOutlet weak var heightLabel: UILabel!
@@ -41,10 +41,8 @@ class ViewController: UIViewController {
         let bmi = weight / pow(height, 2) // pow(제곱할 변수, 몇 제곱 할지 수를 입력)
         print(bmi)
         
-        let secondVC = SecondViewController() //secondVC로 초기화
-        secondVC.bmiValue = String(format:"%.1f",bmi) 
+        performSegue(withIdentifier: "goToResult", sender: self) // segue를 실행시키는 코드, sugue를 만들때 반드시 식별자를 입력해야하고, sender는 segue를 만든 주체를 뜻하는것으로, self를 입력.
         
-        self.present(secondVC, animated: true, completion: nil) //뷰 컨트롤러를 모달 방식으로 제공하는 코드
     }
 }
 
