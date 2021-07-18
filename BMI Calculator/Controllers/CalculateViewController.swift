@@ -41,8 +41,14 @@ class CalculateViewController: UIViewController {
         let bmi = weight / pow(height, 2) // pow(제곱할 변수, 몇 제곱 할지 수를 입력)
         print(bmi)
         
-        performSegue(withIdentifier: "goToResult", sender: self) // segue를 실행시키는 코드, sugue를 만들때 반드시 식별자를 입력해야하고, sender는 segue를 만든 주체를 뜻하는것으로, self를 입력.
-        
+        self.performSegue(withIdentifier: "goToResult", sender: self) // segue를 실행시키는 코드, sugue를 만들때 반드시 식별자를 입력해야하고, sender는 segue를 만든 주체를 뜻하는것으로, self를 입력.
+        // segue를 실행하기 전에 어떤 곳으로 이동하는 것인지 식별하고, 실행하게 해야할때 필요한 코드
+        func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "goToResult" { // 세그웨이의 식별자가 gotoresult가 맞으면 아래 코드 실행
+                let destinationVC = segue.destination as! ResultViewController // segeu.destination만 쓰면 bmiValue가 없다는 에러가 뜬다 이유는 bmiVaule는 result에 있는 것이지, UIviewController에 있는것이 아니기 때문이다. 해서 as! -> 강제 다운 캐스팅을 사용해 resultView라고 확실히 특정해줘야한다
+                destinationVC.bmiValue = "0.0"
+            }
+        }
     }
 }
 
