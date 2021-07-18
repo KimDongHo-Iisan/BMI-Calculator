@@ -40,6 +40,11 @@ class ViewController: UIViewController {
         //bmi 값
         let bmi = weight / pow(height, 2) // pow(제곱할 변수, 몇 제곱 할지 수를 입력)
         print(bmi)
+        
+        let secondVC = SecondViewController() //secondVC로 초기화
+        secondVC.bmiValue = String(format:"%.1f",bmi) 
+        
+        self.present(secondVC, animated: true, completion: nil) //뷰 컨트롤러를 모달 방식으로 제공하는 코드
     }
 }
 
