@@ -1,18 +1,13 @@
-//만약 옵셔널 값이 nil이 아니면 safeOptional 값을 출력해라.
-/* if let safeOptional = optional {
-            safeOptional
- */
 
-let myOptioanl: String?
+let myOptional: String?
 
-myOptioanl = nil
+myOptional = nil
 
-if let safeOptional = myOptioanl {
-    let text: String = safeOptional
-    let text2: String = safeOptional
-    print(safeOptional)
-} else {
-    print("myOptioanl was found to be nil")
-}
+let text: String = myOptional ?? "I am the default value"
 
-// 이 방법은 만약 옵셔널값이 nil이면 출력되는 값이 없다는 것이 단점.
+print(text)
+
+// 만약 옵셔널 값이 nil일때 출력할수 있는 기본값을 제공해주는 방법.
+//nil이어도 에러가 나지 않게 해줄수 있다.
+
+
