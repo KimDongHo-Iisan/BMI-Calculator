@@ -1,13 +1,15 @@
 
-let myOptional: String?
+struct MyOptional {
+    var property = 123
+    func method() {
+        print("I am the struct's method")
+        
+    }
+}
 
-myOptional = nil
+let myOptioanl: MyOptional? //구조체에 값이 있는지 확신하지 못해서 옵셔널을 사용할때,
 
-let text: String = myOptional ?? "I am the default value"
+myOptioanl = nil
+print(myOptioanl?.property)
 
-print(text)
-
-// 만약 옵셔널 값이 nil일때 출력할수 있는 기본값을 제공해주는 방법.
-//nil이어도 에러가 나지 않게 해줄수 있다.
-
-
+// 값이 아닌 구조체나 클래스일때 ?를 붙이면 구조체의 속성에 접근할수 있다.
